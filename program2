@@ -1,0 +1,22 @@
+def printjobschedule(array,t):
+    m=len(array)
+    for j in range(m):
+        for q in range(m-1-j):
+            if array[q][2]<array[q+1][2]:
+                array[q],array[q+1]=array[q+1],array[q]
+    res=[False]*t
+    job=['-1']*t
+    for q in range(len(array)):
+        for q in range(min(t-1,array[q] [1]-1),-1,-1):
+            if res[q] is False:
+                res[q]=True
+                job[q]=array[q][0]
+                break
+    print(job)
+array=[['a',2,20],
+       ['b',2,15],
+       ['c',1,10],
+       ['d',3,5],
+       ['e',3,1]]
+print("maximum profit sequence of jobs is-")
+printjobschedule(array,3)
